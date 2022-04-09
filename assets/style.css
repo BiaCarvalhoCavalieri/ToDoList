@@ -123,6 +123,12 @@ h2 {
   margin-right: 10px;
   margin-left: 10px;
   padding: 10px;
+  width: 345px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
 }
 
 .card-notification__title {
@@ -177,21 +183,21 @@ h2 {
 .card-notification__infos--popup {
   display: none;
   position: fixed;
-  top: -1000px;
   right: -1000px;
 }
 
 .card-notification__infos--popup.active {
-  position: fixed;
+  position: absolute;
   display: flex;
   flex-direction: column;
   background-color: #6A9ECE;
-  top: 278px;
-  right: 82px;
+  bottom: -100%;
+  right: 0px;
   height: 68px;
   width: 110px;
   padding: 16px;
   border-radius: 8px;
+  z-index: 1;
 }
 
 .card-notification__infos--popup-item {
@@ -204,11 +210,11 @@ h2 {
 }
 
 .card-notification__infos--popup.active::after {
-  position: fixed;
+  position: absolute;
   height: 0;
   width: 0;
-  top: 264px;
-  right: 100px;
+  bottom: 100%;
+  right: 14px;
   content: "";
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
