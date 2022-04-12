@@ -48,6 +48,20 @@
       "date": "2022-04-13",
       "status": "done",
       "id": 7
+    },
+    {
+      "title": "Estudar JS ",
+      "description": "Estudar while e suas condições e aplicações",
+      "date": "2022-04-20",
+      "status": "progress",
+      "id": 8
+    },
+    {
+      "title": "ETs",
+      "description": "assistir filme mais longo ('[type=date]').value = '08/06/2017'.split('/').reverse().join('-');  // Para transformar de '2017-06-08' (formato devolvido no //document.querySelector('[type=date]').value) para //'08/06/2017'. Pode fazer isso:   var brDate = '2017-06-08'.split('-').reverse().join('/'); var inputDate = '08/06/2017'.split('/').reverse().join",
+      "date": "2022-04-16",
+      "status": "to-do",
+      "id": 9
     }
   ]
 }
