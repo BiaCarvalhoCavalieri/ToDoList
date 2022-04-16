@@ -15,39 +15,11 @@
       "id": 2
     },
     {
-      "title": "asdfasas",
-      "description": "asdasdasd",
-      "date": "2022-04-14",
-      "status": "to-do",
-      "id": 3
-    },
-    {
-      "title": "olá ",
-      "description": "tudo bem?",
-      "date": "2022-04-22",
-      "status": "progress",
-      "id": 4
-    },
-    {
       "title": "olá ",
       "description": "tudo bem com vc?",
       "date": "2022-04-22",
       "status": "done",
       "id": 5
-    },
-    {
-      "title": "teste 5",
-      "description": "oi amorzin",
-      "date": "2022-04-13",
-      "status": "to-do",
-      "id": 6
-    },
-    {
-      "title": "teste 5",
-      "description": "oi amorzin",
-      "date": "2022-04-13",
-      "status": "done",
-      "id": 7
     },
     {
       "title": "Estudar JS ",
