@@ -1,7 +1,10 @@
 
 const modalTab = document.querySelector('.modal');
+const deletModalTab = document.querySelector('.delet-modal')
 let form = document.getElementById('form-content');
 let pathAPI = "http://localhost:3000/cards"
+const selectForm = document.getElementById('status')
+
 // Setting time and date
 let date = new Date();
 let day = date.getDate();
@@ -102,7 +105,8 @@ if (form) {
       creatingCard3.insertAdjacentHTML("beforeend", cardHTML)
     }
 
-    modalTab.classList.remove('active');
+    modalTab.classList.remove('active')
+    setTimeout(window.location.reload(), 5000);
   }
 }
 
@@ -208,13 +212,17 @@ function populatedCards(cards) {
 // Remove cards
 
 function removeCard(item) {
-
-  const mainCardDiv = item.parentNode.parentNode.parentNode;
-  const mainCardId = mainCardDiv.id;
-  console.log(mainCardId);
-  mainCardDiv.remove();
-  fetch("http://localhost:3000/cards/" + mainCardId, {
-    method: "Delete",
+  const mainCardDiv = item.parentNode.parentNode.parentNode
+  const mainCardId = mainCardDiv.id
+  openPopup()
+  deletModalTab.classList.add('active')
+  const confirmBtn = document.getElementById('confirm-btn')
+  confirmBtn.addEventListener('click', () => {
+    mainCardDiv.remove();
+    fetch("http://localhost:3000/cards/" + mainCardId, {
+      method: "Delete",
+    })
+    closeDeletModal();
   })
 }
 
@@ -229,7 +237,6 @@ function editingCard(item) {
       form.title.value = data.title
       form.description.value = data.description
       form.date.value = data.date
-      const selectForm = document.getElementById('status')
       if (data.status === 'to-do') {
         selectForm.selectedIndex = 0
 
@@ -240,13 +247,28 @@ function editingCard(item) {
         selectForm.selectedIndex = 2
       }
     })
-  openPopup();
-  openModal();
+  openPopup()
+  openModal()
+}
+// Selecting modal status
+
+function toDo() {
+  selectForm.selectedIndex = 0
+  openModal()
+}
+
+function progress() {
+  selectForm.selectedIndex = 1
+  openModal()
+}
+
+function done() {
+  selectForm.selectedIndex = 2
+  openModal()
 }
 
 // to OPEN Modal e Popup
 function openModal() {
-  const modalTab = document.querySelector('.modal');
   modalTab.classList.add('active');
 };
 
@@ -269,7 +291,10 @@ function openPopup(element) {
   }
 
 };
-
+// to close delet modal
+function closeDeletModal() {
+  deletModalTab.classList.remove('active');
+}
 // ESC to close modal and popup
 document.addEventListener('keydown', function (e) {
   if (e.code === 'Escape') {
@@ -277,6 +302,9 @@ document.addEventListener('keydown', function (e) {
     const popupTab = document.querySelector('.card-notification__infos--popup');
     if (modalTab.classList.contains('active')) {
       modalTab.classList.remove('active');
+    }
+    if (deletModalTab.classList.contains('active')) {
+      deletModalTab.classList.remove('active');
     }
     if (popupTab.classList.contains('active')) {
       popupTab.remove();

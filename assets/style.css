@@ -224,12 +224,14 @@ h2 {
 /* MODAL */
 
 
-.modal.active {
+.modal.active,
+.delet-modal.active {
   visibility: visible;
   opacity: 1;
 }
 
-.modal {
+.modal,
+.delet-modal {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -243,14 +245,22 @@ h2 {
   opacity: 0;
 }
 
-.modal-content {
+.modal-content,
+.delet-modal__content {
   background: #B9CCDE;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  border-radius: 8px;
+}
+
+.modal-content {
   height: 300px;
   width: 440px;
-  border-radius: 8px;
+}
+
+.delet-modal__content {
+  padding: 20px;
 }
 
 .modal-content__form {
@@ -259,7 +269,8 @@ h2 {
   padding: 20px;
 }
 
-.modal-content__form--text {
+.modal-content__form--text,
+.delet-modal__content--text {
   font-weight: 700;
   font-size: 16px;
   line-height: 14px;
@@ -300,7 +311,14 @@ h2 {
 
 }
 
-.modal-content__form--save-btn {
+.delet-modal__buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.modal-content__form--save-btn,
+.delet-modal__content--btn {
   padding: 4px 10px;
   height: 38px;
   width: 140px;
@@ -318,6 +336,6 @@ h2 {
   cursor: pointer;
 }
 
-.modal-content__form--save-btn:hover {
+.modal-content__form--save-btn:hover, .delet-modal__content--btn:hover {
   background-color: #2a7fce;
 }
