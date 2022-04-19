@@ -37,7 +37,6 @@ if (form) {
       id: cardId.value.length > 0 ? cardId.value : null,
     }
     if (cardData.id) {
-      console.log("deu certo")
       async function reloadingData() {
         await fetch("http://localhost:3000/cards/" + cardId.value, {
           method: "PUT",
